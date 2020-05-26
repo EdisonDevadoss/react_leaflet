@@ -7,6 +7,8 @@ import leafOragne from '../assets/leaf-orange.png';
 import leafRed from '../assets/leaf-red.png';
 import leafShadow from '../assets/leaf-shadow.png';
 import mapIcon from '../assets/map_icon.png';
+import 'react-leaflet-fullscreen/dist/styles.css';
+import FullscreenControl from 'react-leaflet-fullscreen';
 
 // let myIcon = L.icon({
 //   iconUrl: "",
@@ -82,7 +84,6 @@ class App extends Component {
            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
          />
          <Marker
-           key={`marker-1`}
            position={positionGreenIcon}
            //icon={this.greenIcon}
          onMouseOver={(e) => {
@@ -124,6 +125,7 @@ class App extends Component {
              A pretty CSS3 popup. <br /> Easily customizable.
            </Popup>
          </Marker>
+         <FullscreenControl position="topright" />
        </Map>
     );
   }
