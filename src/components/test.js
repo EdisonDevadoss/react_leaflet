@@ -1,21 +1,14 @@
 import React, {Component} from 'react';
 import '../App.css';
 import L from 'leaflet';
-import {Map, TileLayer, Marker, Popup} from 'react-leaflet';
+import {Map, TileLayer, Marker} from 'react-leaflet';
 import leafGreen from '../assets/leaf-green.png';
 import leafOragne from '../assets/leaf-orange.png';
 import leafRed from '../assets/leaf-red.png';
 import leafShadow from '../assets/leaf-shadow.png';
-import mapIcon from '../assets/map_icon.png';
 import 'react-leaflet-fullscreen/dist/styles.css';
 import FullscreenControl from 'react-leaflet-fullscreen';
-
-// let myIcon = L.icon({
-//   iconUrl: "",
-//   iconSize: [25, 41],
-//   iconAnchor: [12.5, 41],
-//   popupAnchor: [0, -41]
-// })
+import CustomPopup from './customPopup';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -85,21 +78,19 @@ class App extends Component {
          />
          <Marker
            position={positionGreenIcon}
-           //icon={this.greenIcon}
+           icon={this.greenIcon}
          onMouseOver={(e) => {
             e.target.openPopup();
           }}
           onMouseOut={(e) => {
             e.target.closePopup();
           }}
-    >
-           <Popup>
-             A pretty CSS3 popup. <br /> Easily customizable.
-           </Popup>
+          >
+           <CustomPopup/>
          </Marker>
          <Marker
           position={positionRedIcon}
-          //icon={this.redIcon}
+          icon={this.redIcon}
           onMouseOver={(e) => {
             e.target.openPopup();
           }}
@@ -107,13 +98,11 @@ class App extends Component {
             e.target.closePopup();
           }}
          >
-           <Popup>
-             A pretty CSS3 popup. <br /> Easily customizable.
-           </Popup>
+           <CustomPopup/>
          </Marker>
          <Marker
          position={positionOrangeIcon}
-         //icon={this.orangeIcon}
+         icon={this.orangeIcon}
          onMouseOver={(e) => {
           e.target.openPopup();
         }}
@@ -121,9 +110,7 @@ class App extends Component {
           e.target.closePopup();
         }}
          >
-           <Popup>
-             A pretty CSS3 popup. <br /> Easily customizable.
-           </Popup>
+           <CustomPopup/>
          </Marker>
          <FullscreenControl position="topright" />
        </Map>
