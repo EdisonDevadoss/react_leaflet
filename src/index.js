@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'leaflet/dist/leaflet.css';
 import './index.css';
-import SampleExmaple from './components/simple';
-// import BoundsExmaple from './components/bounds';
+// import SampleExmaple from './components/simple';
+import BoundsExmaple from './components/bounds';
 // import Test from './components/test';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <Test /> */}
-    <SampleExmaple/>
-    {/* <BoundsExmaple/> */}
+    {/* <SampleExmaple/> */}
+    <BoundsExmaple/>
   </React.StrictMode>,
   document.getElementById('root')
 );
